@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Apply Resources') {
       input {
-        echo "Do you want to proceed for production deployment?"
+        message "Do you want to proceed for production deployment?"
       }
       steps {
         bat 'terraform apply -auto-approve'
