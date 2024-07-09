@@ -13,20 +13,20 @@ pipeline {
   stages {
     stage('Init Provider') {
       steps {
-        sh 'terraform init'
+        bat 'terraform init'
       }
     }
     stage('Plan Resources') {
       steps {
-        sh 'terraform plan'
+        bat 'terraform plan'
       }
     }
     stage('Apply Resources') {
       input {
-        message "Do you want to proceed for production deployment?"
+        echo "Do you want to proceed for production deployment?"
       }
       steps {
-        sh 'terraform apply -auto-approve'
+        bat 'terraform apply -auto-approve'
       }
     }
   }
